@@ -62,10 +62,21 @@ get '/invalid-login' do
 end
 
 get '/invalid-username' do
-  #TODO: fill with previous parameters
   erb :invalidUsername
 end
 
 get '/home' do
   erb :home
+end
+
+get '/lessons' do
+  erb :lessons
+end
+
+get '/help' do
+  erb :help
+end
+
+get '/my-profile' do
+  erb :profile
 end
