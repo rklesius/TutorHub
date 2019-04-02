@@ -1,0 +1,1 @@
+# Creates lessons table

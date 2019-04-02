@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>TutorHub</title>
+    <link rel="icon" type="image/ico" href="/img/TH.jpg" />
+
+
+    <!-- from Bootstrap starter -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+    <!-- jQuery included for Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/style.css" type="text/css">
+  </head>
+
+  <body class="container">
+
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <img class="img-fluid mx-auto" src="/img/tutorhub.jpg" alt="tutorHub">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <h1>Welcome to TutorHub!</h1>
+      <p>
+        TutorHub is a website dedicated to helping USF students help each other and learn new skills.
+        On this website you can learn or teach anything ranging from underwater basket weaving to programming robots.
+      </p>
+      <p>
+        Students are able to...
+      </p>
+      <ul>
+        <li>Share your passions with other students</li>
+        <li>Take a wide variety of lessons to expand your knowledge</li>
+        <li>Connect with other students sharing the desire to learn new things</li>
+      </ul>
+      <p>
+        So sign up and start learning!
+      </p>
+      <div style="text-align:center; padding: 25px;">
+        <a class="btn btn-primary" href="/create-account" role="button">Create a new Account</a>
+      </div>
+    </div>
+    <div class="col-md-6 mx-auto my-auto form-group">
+    <section class="login">
+      <form enctype="multipart/form-data" method ="GET" action = "/login" >
+          <label for="validationDefaultUsername">Username</label>
+          <div class="input-group">
+            <input type="text" class="form-control" id="validationDefaultUsername" name = "username" placeholder="Username" aria-describedby="inputGroupPrepend2" required>
+          </div>
+          <br/>
+          <label for="validationDefault03">Password</label>
+          <div class="input-group">
+            <input type="password" class="form-control" id="validationDefault03" name="password" placeholder="Password" required>
+          </div>
+        <div style="text-align:center; padding: 25px;">
+          <button class="btn btn-primary" type="submit">Login</button>
+        </div>
+      </form>
+    </section>
+  </div>
+  </div>
+
+  </body>
+
+</html>
+

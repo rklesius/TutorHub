@@ -1,0 +1,28 @@
+:root {
+    --purple: rgb(123, 26, 157);
+    --red: rgb(228, 57, 57);
+    --blue: rgb(19, 86, 153);
+}
+
+.login {
+    display: grid;
+    height: 100vh;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.btn-primary {
+    background-color: var(--purple);
+    text-align: center;
+    border-color: white;
+}
+
+.btn-primary:hover
+{
+    background-color: var(--blue);
+}
+
+h1
+{
+    text-align: center;
+}
