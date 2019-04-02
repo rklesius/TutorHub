@@ -27,7 +27,9 @@ get '/login' do
     session[:username] = username
     session[:password] = BCrypt::Password.new(@user.password)
     if session[:password] == password
-      redirect to('/')
+      redirect to('/home')
+    else
+      redirect to('/invalid-login')
     end
   else
     session.clear
@@ -41,22 +43,29 @@ end
 
 get '/new-account' do
   username = params[:username]
+  @currusername = username
   password = params[:password]
   major = params[:major]
   about = params[:about]
   @user = User.get(username)
   if @user #if username already being used
-    session.clear
     redirect to ('/invalid-username')
+  else #add to database, go to homepage
+    new = User.new username: username, password: BCrypt::Password.create(password), major: major, about: about
+    new.save
+    redirect to ('/home')
   end
 end
 
 get '/invalid-login' do
-  #TODO: make erb with login page but with error message
+  erb :invalidLogin
 end
 
 get '/invalid-username' do
-  #TODO: make erb with create account but with error message
   #TODO: fill with previous parameters
+  erb :invalidUsername
 end
 
+get '/home' do
+  erb :home
+end

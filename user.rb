@@ -12,6 +12,6 @@ class User
   property :username, String, :key=>true
   property :password, Text
   property :major, String
-  property :about, Text
+  property :about, String
 end
 DataMapper.finalize()
