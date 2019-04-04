@@ -9,6 +9,7 @@ DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/tutorhub.db")
 
 class Lesson
   include DataMapper::Resource
+  property :lessonid, Integer, :key=>true
   property :title, String
   property :description, String
   property :category, String

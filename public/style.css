@@ -26,3 +26,9 @@ h1
 {
     text-align: center;
 }
+
+.profHeader
+{
+    color: white;
+    background-color: var(--purple);
+}

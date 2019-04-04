@@ -11,7 +11,8 @@ class User
   include DataMapper::Resource
   property :username, String, :key=>true
   property :password, Text
+  property :name, String
   property :major, String
-  property :about, String
+  property :about, Text
 end
 DataMapper.finalize()
