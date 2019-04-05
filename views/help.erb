@@ -48,12 +48,25 @@
     </ul>
     <div>
       <a class="btn btn-primary" href="/new-help">Ask for Help</a>
-      <a class="btn btn-primary" href="/" role="button">Log out</a>
+      <a class="btn btn-primary" href="/logout" role="button">Log out</a>
     </div>
   </div>
 </nav>
 
 <h1>Students who need help</h1>
+
+<!-- If help database is empty -->
+<% if Help.first.nil? %>
+  <p>Wow!  Looks like no one needs help!</p>
+<% else %>
+  <% Help.all.each do |row| %>
+  <section class = "card">
+    <div class="card-body">
+      <h2><a href="/help/<%=row.helpid %>" class="forum-link"><%= row.title %></a></h2> by <a href="/user/<%=row.username %>" class="forum-link"><%=row.username %></a>
+    </div>
+  <% end %>
+  </section>
+<% end %>
 
 </body>
 </html>

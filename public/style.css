@@ -26,3 +26,13 @@ h1
 {
     text-align: center;
 }
+
+.forum-link
+{
+    color: rgb(123, 26, 157) !important;
+}
+
+.forum-link:hover
+{
+    color: rgb(123, 26, 157) !important;
+}

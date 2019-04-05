@@ -19,6 +19,7 @@
  <ul>
     <li>sinatra</li>
     <li>sinatra-contrib</li>
+    <li>dm-sqlite-adapter</li>
     <li>data_mapper</li>
     <li>bcrypt</li>
     <li>sqlite</li>

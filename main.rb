@@ -5,9 +5,11 @@ require 'csv'
 require 'zip'
 require 'bcrypt'
 require_relative 'user'
+require_relative 'help'
 
 # Comment this line out to keep database entries from last run
 #User.auto_migrate!
+Help.auto_migrate!
 
 currhelpid = 1
 currlessonid = 1
@@ -69,13 +71,19 @@ get '/invalid-username' do
   erb :invalidUsername
 end
 
+#display all lessons
 get '/home' do
   erb :home
 end
 
-#displaying all lessons
-get '/lessons' do
-  erb :lessons
+get '/logout' do
+  session.clear
+  redirect to ('/')
+end
+
+#display individual lesson
+get '/lessons/:lid' do
+  erb :viewlesson
 end
 
 #redirect to erb to create new lesson
@@ -93,6 +101,12 @@ get '/help' do
   erb :help
 end
 
+#display individual help
+get '/help/:hid' do
+  @view_help = Help.get(params[:hid])
+  erb :viewhelp
+end
+
 #redirect to erb to create new help
 get '/new-help' do
   erb :newhelp
@@ -102,7 +116,7 @@ end
 get '/create-help' do
   title = params[:title]
   description = params[:description]
-  category = params[:description]
+  category = params[:category]
   newhelp = Help.new helpid: currhelpid, title: title, description: description, category: category, username: session[:username]
   newhelp.save
   currhelpid = currhelpid + 1

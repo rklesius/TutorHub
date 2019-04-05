@@ -50,47 +50,15 @@
   </div>
 </nav>
 
-<h1>What do you need help with?</h1>
-
+<h1><%= @view_help.title %></h1>
 <div class="row">
-  <div class="col-md-6 mx-auto my-auto form-group">
-    <section class="login">
-      <form enctype="multipart/form-data" method ="GET" action = "/create-help" >
-        <label for="validationDefaultUsername">Title</label>
-        <div class="input-group">
-          <input type="text" class="form-control" id="validationDefaultUsername" name="title" aria-describedby="inputGroupPrepend2" required>
-        </div>
-        <br/>
-        <div class="form-group">
-          <label for="description">Can you describe your problem in any more detail?</label>
-          <textarea class="form-control" id="description" name="description" rows="5"></textarea>
-        </div>
-        <br/>
-        <label for="FormMajor">Which category is your problem in?</label>
-        <select class="form-control" id="FormMajor" name="category" required>
-          <option selected disabled>Please select one</option>
-          <option>Biomedical Engineering</option>
-          <option>Chemical Engineering</option>
-          <option>Civil Engineering</option>
-          <option>Computer Engineering</option>
-          <option>Computer Science</option>
-          <option>Cybersecurity</option>
-          <option>Electrical Engineering</option>
-          <option>Industrial Engineering</option>
-          <option>Information Technology</option>
-          <option>Mechanical Engineering</option>
-          <option>Hobby</option>
-          <option>Other</option>
-        </select>
-        <br/>
-        <div style="text-align:center; padding: 25px;">
-          <button class="btn btn-primary" type="submit">Submit</button>
-        </div>
-      </form>
-    </section>
+  <div class = "col-md-8 mx-auto">
+    <p>User: <a href="/user/<%=@view_help.username %>" class="forum-link"><%=@view_help.username %></a></p>
+    <p>Category: <%= @view_help.category %></p>
+    <p><%= @view_help.description %></p>
   </div>
 </div>
 
-</body>
+<br/>
 
-</html>
+</body>

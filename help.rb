@@ -15,5 +15,4 @@ class Help
   property :category, String
   property :username, String
 end
-
 DataMapper.finalize()
