@@ -100,7 +100,13 @@ end
 
 #create new help after form submission from '/new-help'
 get '/create-help' do
-  #TODO: Form submission
+  title = params[:title]
+  description = params[:description]
+  category = params[:description]
+  newhelp = Help.new helpid: currhelpid, title: title, description: description, category: category, username: session[:username]
+  newhelp.save
+  currhelpid = currhelpid + 1
+  redirect to ('/help')
 end
 
 get '/user/:username' do
