@@ -8,10 +8,10 @@ require_relative 'user'
 require_relative 'help'
 require_relative 'lessons'
 
-# Comment this line out to keep database entries from last run
+# Comment this line out to keep database entries from last run, need to run these to init tables!!!
 #User.auto_migrate!
-Help.auto_migrate!
-Lesson.auto_migrate!
+#Help.auto_migrate!
+#Lesson.auto_migrate!
 
 currhelpid = 1
 currlessonid = 1

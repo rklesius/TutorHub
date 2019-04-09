@@ -11,7 +11,7 @@ class Help
   include DataMapper::Resource
   property :helpid, Integer, :key=>true
   property :title, String
-  property :description, String
+  property :description, Text
   property :category, String
   property :username, String
 end

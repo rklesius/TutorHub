@@ -11,7 +11,7 @@ class Lesson
   include DataMapper::Resource
   property :lessonid, Integer, :key=>true
   property :title, String
-  property :description, String
+  property :description, Text
   property :category, String
   property :username, String
   property :date, DateTime

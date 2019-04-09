@@ -67,17 +67,34 @@
 
 <br/>
 
-<section class = "content card">
-  <div class = "card-body">
-    <h2><%= @view_user.username %>'s Lessons</h2>
-  </div>
-</section>
 
-<section class = "content card">
-  <div class = "card-body">
-    <h2><%= @view_user.username %>'s Help Needed</h2>
-  </div>
-</section>
+<h2><%= @view_user.username %>'s Lessons</h2>
+<br/>
+<% Lesson.all.each do |row| %>
+      <% if row.username == @view_user.username %>
+    <section class = "card">
+      <div class="card-body">
+        <h3><a href="/lessons/<%=row.lessonid %>" class="forum-link"><%= row.title %></a></h3>
+      </div>
+    </section>
+      <% end %>
+<% end %>
+<br/>
+
+
+<h2><%= @view_user.username %>'s Help Needed</h2>
+<br/>
+<% Help.all.each do |row| %>
+  <% if row.username == @view_user.username %>
+    <section class = "card">
+      <div class="card-body">
+        <h3><a href="/help/<%=row.helpid %>" class="forum-link"><%= row.title %></a></h3>
+      </div>
+    </section>
+  <% end %>
+<% end %>
+
+<br/>
 
 </body>
 </html>
