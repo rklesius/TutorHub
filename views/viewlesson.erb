@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TutorHub</title>
+  <link rel="icon" type="image/ico" href="/img/TH.jpg" />
+
+
+  <!-- from Bootstrap starter -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+  <!-- jQuery included for Bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="/style.css" type="text/css">
+</head>
+
+<body class="container">
+
+<div class="row">
+  <div class="col-md-6 mx-auto">
+    <img class="img-fluid mx-auto" src="/img/tutorhub.jpg" alt="tutorHub">
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/home">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/help">Help</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/user/<%= session[:username] %>">My Profile</a>
+      </li>
+    </ul>
+    <a class="btn btn-primary" href="/logout" role="button">Log out</a>
+  </div>
+</nav>
+
+<h1><%= @view_lesson.title %></h1>
+<div class="row">
+  <div class = "col-md-8 mx-auto">
+    <p>User: <a href="/user/<%=@view_lesson.username %>" class="forum-link"><%=@view_lesson.username %></a></p>
+    <p>Category: <%= @view_lesson.category %></p>
+    <p>When: <%= @view_lesson.date %></p>
+    <p>Where: <%= @view_lesson.location %></p>
+    <p><%= @view_lesson.description %></p>
+  </div>
+</div>
+
+<br/>
+
+</body>

@@ -6,10 +6,12 @@ require 'zip'
 require 'bcrypt'
 require_relative 'user'
 require_relative 'help'
+require_relative 'lessons'
 
 # Comment this line out to keep database entries from last run
 #User.auto_migrate!
 Help.auto_migrate!
+Lesson.auto_migrate!
 
 currhelpid = 1
 currlessonid = 1
@@ -83,6 +85,7 @@ end
 
 #display individual lesson
 get '/lessons/:lid' do
+  @view_lesson = Lesson.get(params[:lid])
   erb :viewlesson
 end
 
@@ -93,7 +96,16 @@ end
 
 #create new lesson after form submission from '/new-lesson'
 get '/create-lesson' do
-  #TODO: Form submission
+  title = params[:title]
+  description = params[:description]
+  category = params[:category]
+  date = params[:date]
+  location = params[:location]
+  newlesson = Lesson.new lessonid: currlessonid, title: title, description: description, category: category, username: session[:username],
+                         date: date, location: location
+  newlesson.save
+  currlessonid = currlessonid + 1
+  redirect to ('/home')
 end
 
 #display all help

@@ -54,6 +54,18 @@
   </nav>
 
   <h1>Lessons available</h1>
+  <!-- If help database is empty -->
+  <% if Lesson.first.nil? %>
+  <p>No lessons are available right now :(</p>
+  <% else %>
+  <% Lesson.all.each do |row| %>
+    <section class = "card">
+      <div class="card-body">
+        <h2><a href="/lessons/<%=row.lessonid %>" class="forum-link"><%= row.title %></a></h2> by <a href="/user/<%=row.username %>" class="forum-link"><%=row.username %></a>
+      </div>
+  <% end %>
+  </section>
+<% end %>
 
 </body>
 </html>

@@ -52,6 +52,54 @@
 
 <h1>Plan a new lesson</h1>
 
+<div class="row">
+  <div class="col-md-6 mx-auto my-auto form-group">
+    <section class="login">
+      <form enctype="multipart/form-data" method ="GET" action = "/create-lesson" >
+        <label for="validationDefaultUsername">Title</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="validationDefaultUsername" name="title" aria-describedby="inputGroupPrepend2" required>
+        </div>
+        <br/>
+        <div class="form-group">
+          <label for="description">Describe your lesson</label>
+          <textarea class="form-control" id="description" name="description" rows="5"></textarea>
+        </div>
+        <br/>
+        <label for="FormMajor">Which category does your lesson fall under?</label>
+        <select class="form-control" id="FormMajor" name="category" required>
+          <option selected disabled>Please select one</option>
+          <option>Biomedical Engineering</option>
+          <option>Chemical Engineering</option>
+          <option>Civil Engineering</option>
+          <option>Computer Engineering</option>
+          <option>Computer Science</option>
+          <option>Cybersecurity</option>
+          <option>Electrical Engineering</option>
+          <option>Industrial Engineering</option>
+          <option>Information Technology</option>
+          <option>Mechanical Engineering</option>
+          <option>Hobby</option>
+          <option>Other</option>
+        </select>
+        <br/>
+        <label for="validationDefaultUsername">When is your lesson?</label>
+        <div class="input-group">
+          <input type="datetime-local" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" name="date" required>
+        </div>
+        <br/>
+        <label for="validationDefaultUsername">Where is your lesson?</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="validationDefaultUsername" name="location" aria-describedby="inputGroupPrepend2" required>
+        </div>
+        <br/>
+        <div style="text-align:center; padding: 25px;">
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+      </form>
+    </section>
+  </div>
+</div>
 
 </body>
 
