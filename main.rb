@@ -10,8 +10,8 @@ require_relative 'lessons'
 
 # Comment this line out to keep database entries from last run, need to run these to init tables!!!
 #User.auto_migrate!
-#Help.auto_migrate!
-#Lesson.auto_migrate!
+Help.auto_migrate!
+Lesson.auto_migrate!
 
 currhelpid = 1
 currlessonid = 1
@@ -102,9 +102,15 @@ get '/create-lesson' do
   date = params[:date]
   location = params[:location]
   newlesson = Lesson.new lessonid: currlessonid, title: title, description: description, category: category, username: session[:username],
-                         date: date, location: location
+                         date: date, location: location, resolved: FALSE
   newlesson.save
   currlessonid = currlessonid + 1
+  redirect to ('/home')
+end
+
+get '/lesson-complete/:lid' do
+  lesson = Lesson.get(params[:lid])
+  lesson.update(:resolved => TRUE)
   redirect to ('/home')
 end
 
@@ -129,9 +135,15 @@ get '/create-help' do
   title = params[:title]
   description = params[:description]
   category = params[:category]
-  newhelp = Help.new helpid: currhelpid, title: title, description: description, category: category, username: session[:username]
+  newhelp = Help.new helpid: currhelpid, title: title, description: description, category: category, username: session[:username], resolved: FALSE
   newhelp.save
   currhelpid = currhelpid + 1
+  redirect to ('/help')
+end
+
+get '/help-resolved/:hid' do
+  help = Help.get(params[:hid])
+  help.update(:resolved => TRUE)
   redirect to ('/help')
 end
 

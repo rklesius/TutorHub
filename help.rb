@@ -14,5 +14,6 @@ class Help
   property :description, Text
   property :category, String
   property :username, String
+  property :resolved, Boolean
 end
 DataMapper.finalize()

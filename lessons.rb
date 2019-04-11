@@ -16,5 +16,6 @@ class Lesson
   property :username, String
   property :date, DateTime
   property :location, String
+  property :resolved, Boolean
 end
 DataMapper.finalize()

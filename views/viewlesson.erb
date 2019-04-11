@@ -50,9 +50,17 @@
   </div>
 </nav>
 
-<h1><%= @view_lesson.title %></h1>
+<h1><%= @view_lesson.title %>
+  <% if @view_lesson.resolved %>
+     (complete)
+  <% end %>
+</h1>
 <div class="row">
   <div class = "col-md-8 mx-auto">
+    <% if @view_lesson.username == session[:username] and not @view_lesson.resolved %>
+      <a class="btn btn-danger" href="/lesson-complete/<%= @view_lesson.lessonid %>">Mark as complete</a>
+      <br/>
+    <% end %>
     <p>User: <a href="/user/<%=@view_lesson.username %>" class="forum-link"><%=@view_lesson.username %></a></p>
     <p>Category: <%= @view_lesson.category %></p>
     <p>When: <%= @view_lesson.date %></p>

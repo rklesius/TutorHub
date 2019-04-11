@@ -50,9 +50,17 @@
   </div>
 </nav>
 
-<h1><%= @view_help.title %></h1>
+<h1><%= @view_help.title %>
+  <% if @view_help.resolved %>
+    (complete)
+  <% end %>
+</h1>
 <div class="row">
   <div class = "col-md-8 mx-auto">
+    <% if @view_help.username == session[:username] and not @view_help.resolved %>
+      <a class="btn btn-danger" href="/help-resolved/<%= @view_help.helpid %>">Mark as resolved</a>
+      <br/>
+    <% end %>
     <p>User: <a href="/user/<%=@view_help.username %>" class="forum-link"><%=@view_help.username %></a></p>
     <p>Category: <%= @view_help.category %></p>
     <p><%= @view_help.description %></p>
