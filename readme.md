@@ -25,3 +25,9 @@
     <li>sqlite</li>
  </ul>
  <p>After that, run main.rb and the program will start on http://localhost:4567/ </p>
+ 
+ <h2>Troubleshooting</h2>
+ <p>If you get error messages about dm-serializer, you might have to modify the json gem installed when you install datamapper.
+    If this happens, delete the default gemspec file in C:\Ruby24-x64\lib\ruby\gems\2.4.0\specifications\default for the json
+    2.0.4 and run gem install data_mapper again.  
+ </p>
