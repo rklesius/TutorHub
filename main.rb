@@ -7,14 +7,16 @@ require 'bcrypt'
 require_relative 'user'
 require_relative 'help'
 require_relative 'lessons'
+require_relative 'comment'
 
 # Comment this line out to keep database entries from last run, need to run these to init tables!!!
-#User.auto_migrate!
+User.auto_migrate!
 Help.auto_migrate!
 Lesson.auto_migrate!
+Comment.auto_migrate!
 
-currhelpid = 1
-currlessonid = 1
+postid = 1
+commentid = 1
 
 configure do
   enable :sessions
@@ -101,10 +103,10 @@ get '/create-lesson' do
   category = params[:category]
   date = params[:date]
   location = params[:location]
-  newlesson = Lesson.new lessonid: currlessonid, title: title, description: description, category: category, username: session[:username],
+  newlesson = Lesson.new lessonid: postid, title: title, description: description, category: category, username: session[:username],
                          date: date, location: location, resolved: FALSE
   newlesson.save
-  currlessonid = currlessonid + 1
+  postid = postid + 1
   redirect to ('/home')
 end
 
@@ -135,16 +137,32 @@ get '/create-help' do
   title = params[:title]
   description = params[:description]
   category = params[:category]
-  newhelp = Help.new helpid: currhelpid, title: title, description: description, category: category, username: session[:username], resolved: FALSE
+  newhelp = Help.new helpid: postid, title: title, description: description, category: category, username: session[:username], resolved: FALSE
   newhelp.save
-  currhelpid = currhelpid + 1
+  postid = postid + 1
   redirect to ('/help')
 end
 
+#mark help as resolved
 get '/help-resolved/:hid' do
   help = Help.get(params[:hid])
   help.update(:resolved => TRUE)
   redirect to ('/help')
+end
+
+#add a comment with a corresponding post id
+get '/add-comment/:pid' do
+  description = params[:description]
+  comment = Comment.new commentid: commentid, postid: params[:pid], username: session[:username],  description: description
+  comment.save
+  commentid = commentid + 1
+
+  #redirect to where you were
+  if Help.get(params[:pid])
+    redirect to ('help/' + params[:pid])
+  else
+    redirect to ('lessons/' + params[:pid])
+  end
 end
 
 get '/user/:username' do

@@ -68,7 +68,33 @@
     <p><%= @view_lesson.description %></p>
   </div>
 </div>
-
 <br/>
+<h2>Comments</h2>
+<div class="row">
+  <div class="col-md-8 mx-auto">
+    <% Comment.all.each do |row| %>
+      <% if row.postid == @view_lesson.lessonid %>
+        <section class = "card">
+          <div class="card-body">
+            <h3><a href="/user/<%=row.username %>" class="forum-link"><%= row.username %></a></h3>
+            <p><%= row.description %></p>
+          </div>
+        </section>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<br/>
+<div class="row">
+  <div class="col-md-6 mx-auto my-auto form-group">
+    <form enctype="multipart/form-data" method ="GET" action = "/add-comment/<%=@view_lesson.lessonid %>" >
+      <label for="about">Add a comment</label>
+      <textarea class="form-control" id="description" name="description" rows="5"></textarea>
+      <div style="text-align:center; padding: 25px;">
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
 
 </body>
