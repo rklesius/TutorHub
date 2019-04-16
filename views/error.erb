@@ -46,34 +46,11 @@
         <a class="nav-link" href="/user/<%= session[:username] %>">My Profile</a>
       </li>
     </ul>
-    <div>
-      <a class="btn btn-primary" href="/new-help">Ask for Help</a>
-      <a class="btn btn-primary" href="/logout" role="button">Log out</a>
-    </div>
+    <a class="btn btn-primary" href="/logout" role="button">Log out</a>
   </div>
 </nav>
 
-<h1>Students who need help</h1>
-
-<!-- If help database is empty -->
-<% if Help.first.nil? %>
-  <p>Wow!  Looks like no one needs help!</p>
-<% else %>
-  <% Help.all.each do |row| %>
-    <% if row.resolved == FALSE %>
-    <section class = "card">
-      <div class="card-body">
-        <h2><a href="/help/<%=row.helpid %>" class="forum-link"><%= row.title %></a></h2> by <a href="/user/<%=row.username %>" class="forum-link"><%=row.username %></a>
-      </div>
-    </section>
-    <% end %>
-  <% end %>
-<% end %>
-
-<br/>
-<br/>
-<br/>
-<p style="color: lightslategrey;">Please direct concerns or errors to help@tutorhub.com</p>
-
+<h1>404 page not found</h1>
+<p style="color: lightslategrey;">If you think a page should be here, email bugs or concerns to help@tutorhub.com</p>
 </body>
 </html>
