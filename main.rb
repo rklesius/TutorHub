@@ -10,10 +10,10 @@ require_relative 'lessons'
 require_relative 'comment'
 
 # Comment this line out to keep database entries from last run, need to run these to init tables!!!
-#User.auto_migrate!
-#Help.auto_migrate!
-#Lesson.auto_migrate!
-#Comment.auto_migrate!
+User.auto_migrate!
+Help.auto_migrate!
+Lesson.auto_migrate!
+Comment.auto_migrate!
 
 postid = 1
 commentid = 1
